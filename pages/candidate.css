@@ -1,0 +1,142 @@
+/* Reset basic styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Layout structure */
+  .all {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar styles */
+  #sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    border-right: 1px solid #dee2e6;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+  
+  #sidebar .nav-link {
+    color: #333;
+    padding: 16px 24px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  #sidebar .nav-link:hover {
+    background: #f8f9fa;
+    color: #008cff;
+  }
+  
+  #sidebar .nav-link.active {
+    background: #e9ecef;
+    font-weight: 600;
+  }
+  
+  #sidebar h4 {
+    padding: 25px 0;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    margin: 0;
+    font-size: 20px;
+    color: #008cff;
+  }
+  
+  /* Main content area */
+  .main-content {
+    margin-left: 250px;
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  /* Form container */
+  .container {
+    background-color: #ffffff;
+    max-width: 500px;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    margin-bottom: 50px;
+  }
+  
+  /* Labels and inputs */
+  .labels {
+    display: block;
+    font-weight: 600;
+    color: #333333;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .inputs {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .inputs:focus {
+    border-color: #008cff;
+    box-shadow: 0 0 4px rgba(0, 140, 255, 0.25);
+  }
+  
+  /* Button styling */
+  .button {
+    background-color: #008cff;
+    color: #ffffff;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .button:hover {
+    background-color: #006fd6;
+    transform: translateY(-1px);
+  }
+  
+  /* Toggle button */
+  .btn-toggle {
+    position: fixed;
+    top: 15px;
+    left: 265px;
+    z-index: 1100;
+  }
+  
+  /* Sidebar toggle for small screens */
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -250px;
+    }
+    #sidebar.sidebar-open {
+      margin-left: 0;
+    }
+    .main-content {
+      margin-left: 0;
+    }
+    .btn-toggle {
+      left: 20px;
+    }
+  }
+  
