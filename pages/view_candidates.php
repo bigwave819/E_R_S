@@ -66,32 +66,41 @@ $result = $conn->query($query);
 </head>
 <body>
 
-<!-- Sidebar -->
-<div id="sidebar">
-  <h4>EMP Recruit</h4>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link" href="home.php"><i class="fas fa-home"></i> Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="add_candidate.php"><i class="fas fa-user-edit"></i> Add Candidate</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="view_candidates.php"><i class="fas fa-users"></i> View Candidates</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </li>
-  </ul>
-</div>
 
-<!-- Toggle Button -->
-<button class="btn btn-outline-secondary btn-sm btn-toggle" onclick="toggleSidebar()">
-  <i class="fas fa-bars"></i>
-</button>
+<div id="sidebar">
+                <h4>EMP Recruit</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                    <a class="nav-link" href="home.php"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link active" href="view_candidates.php"><i class="fas fa-user-edit"></i>Candidate</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="view_post.php"><i class="fas fa-users"></i> post</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> report</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+                </div>
+
+                <!-- Toggle Button -->
+                <button class="btn btn-outline-secondary btn-sm btn-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+                </button>
+        </div>
 
 <!-- Content -->
 <div class="container mt-5" style="margin-left: 270px; max-width: 100%;">
+  <div class="p-5">
+    <a href="add_candidate.php" class="btn btn-primary">
+      add Candidates
+    </a>
+  </div>
   <div class="card shadow-sm">
     <div class="card-body">
       <h4 class="card-title mb-4 text-center">Candidates List</h4>
@@ -108,6 +117,7 @@ $result = $conn->query($query);
                 <th>Birth Date</th>
                 <th>Phone</th>
                 <th>Post Applied</th>
+                <th colspan="2">action</th>
               </tr>
             </thead>
             <tbody>
@@ -122,6 +132,10 @@ $result = $conn->query($query);
                 <td><?php echo htmlspecialchars($row['c_dateOfBirth']); ?></td>
                 <td><?php echo htmlspecialchars($row['phoneNumber']); ?></td>
                 <td><?php echo htmlspecialchars($row['postName']); ?></td>
+                <td>
+                  <a href="edit_candidates.php?C_Id=<?php echo $row['C_Id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a href="delete_candidates.php?C_Id=<?php echo $row['C_Id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+                </td>
               </tr>
             <?php } ?>
           </tbody>

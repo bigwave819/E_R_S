@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $postId = $_POST['postId'];
 
-    $query = "INSERT INTO candidates (C_firstname, c_lastname, c_gender, c_dateOfBirth, phoneNumber, postId) VALUES('$firstname', '$lastname', '$gender', '$birth', '$phone', '$postId')";
+    $query = "INSERT INTO candidates(c_firstname, c_lastname, c_gender, c_dateOfBirth, phoneNumber, postId) VALUES('$firstname', '$lastname', '$gender', '$birth', '$phone', '$postId')";
 
     if ($conn->query($query) === TRUE) {
         echo "<script>alert('candidate added sucessively!') window.location.href='view_candidates.php';</script>";
@@ -50,28 +50,11 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <div class="all">
-    <div id="sidebar">
-  <h4>EMP Recruit</h4>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link" href="home.php"><i class="fas fa-home"></i> Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="add_candidate.php"><i class="fas fa-user-edit"></i> Add Candidate</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> View Candidates</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </li>
-  </ul>
+<div class="p-3">
+<a href="view_candidates.php" class="btn btn-primary">
+      view Candidates
+    </a>
 </div>
-
-<!-- Toggle Button -->
-<button class="btn btn-outline-secondary btn-sm btn-toggle" onclick="toggleSidebar()">
-  <i class="fas fa-bars"></i>
-</button>
 <div class="container mt-5">
   <div class="card shadow-sm">
     <div class="card-body">
@@ -110,7 +93,6 @@ if (isset($_POST['submit'])) {
         <div class="mb-4">
           <label class="form-label">Select Post</label>
           <select name="postId" class="form-select" required>
-            <option value="">Select Post</option>
             <?php while ($row = $postResult->fetch_assoc()) { ?>
               <option value="<?php echo $row['postId']; ?>"><?php echo $row['postName']; ?></option>
             <?php } ?>

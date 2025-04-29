@@ -22,27 +22,31 @@ $userName = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
 </head>
 <body>
 <div id="sidebar">
-  <h4>EMP Recruit</h4>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link active" href="home.php"><i class="fas fa-home"></i> Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="add_candidate.php"><i class="fas fa-user-edit"></i> Add Candidate</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> View Candidates</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    </li>
-  </ul>
-</div>
+                <h4>EMP Recruit</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                    <a class="nav-link active" href="home.php"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="view_candidates.php"><i class="fas fa-user-edit"></i>Candidate</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="view_post.php"><i class="fas fa-users"></i> post</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> report</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+                </div>
 
-<!-- Toggle Button -->
-<button class="btn btn-outline-secondary btn-sm btn-toggle" onclick="toggleSidebar()">
-  <i class="fas fa-bars"></i>
-</button>
+                <!-- Toggle Button -->
+                <button class="btn btn-outline-secondary btn-sm btn-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+                </button>
+        </div>
 
 <!-- Main Content -->
 <div id="content">
@@ -75,17 +79,7 @@ $userName = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
 <script>
   function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
-    if (window.innerWidth <= 768) {
-      sidebar.classList.toggle("sidebar-open");
-    } else {
-      if (sidebar.style.marginLeft === "-250px") {
-        sidebar.style.marginLeft = "0";
-        document.getElementById("content").style.marginLeft = "250px";
-      } else {
-        sidebar.style.marginLeft = "-250px";
-        document.getElementById("content").style.marginLeft = "0";
-      }
-    }
+    sidebar.classList.toggle("sidebar-open");
   }
 </script>
 

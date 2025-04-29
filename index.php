@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
         if (password_verify($password, $user['password'])) {
             $_SESSION['userId'] = $user['userId'];
             $_SESSION['username'] = $user['username'];
-            header("Location: /hirwa/pages/home.php");
+            header("Location:pages/home.php");
             exit();
         } else {
             echo "<script>alert('Incorrect username or password'); window.history.back();</script>";
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth/style.css">
     <title>Login</title>
 </head>
 <body class="bg">
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" name="password" class="form-control">
             </div>
             <div class="mb-2">
-                don't have an account? <a href="signup.php">SignUp</a>
+                don't have an account? <a href="auth/signup.php">SignUp</a>
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Login</button>
         </form>

@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $insertUser = "INSERT INTO users(username, password) VALUES('$username', '$hashedPassword')";
         if ($conn->query($insertUser)) {
-            header("Location: /hirwa/pages/home.php");
+            header("Location:hirwa/pages/home.php");
             exit();
         } else {
             echo "<script>alert('Error registering user: " . $conn->error . "'); window.history.back();</script>";
@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="mb-2">
-                    already have an account ?<a href="login.php">Login</a>
+                    already have an account ?<a href="../index.php">Login</a>
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             </form>
