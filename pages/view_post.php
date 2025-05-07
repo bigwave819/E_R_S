@@ -47,7 +47,7 @@ $result = $conn->query($sql);
                     <a class="nav-link active" href="view_candidates.php"><i class="fas fa-users"></i> post</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> report</a>
+                    <a class="nav-link" href="view_report.php"><i class="fas fa-users"></i> report</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>

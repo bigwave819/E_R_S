@@ -80,7 +80,7 @@ $result = $conn->query($query);
                     <a class="nav-link" href="view_post.php"><i class="fas fa-users"></i> post</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> report</a>
+                    <a class="nav-link" href="view_report.php"><i class="fas fa-users"></i> report</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -107,7 +107,7 @@ $result = $conn->query($query);
 
       <?php if ($result->num_rows > 0) { ?>
         <div class="table-responsive">
-          <table class="table table-hover table-bordered">
+          <table class="table table-hover table-bordered table-striped">
             <thead class="table-primary">
               <tr>
                 <th>#</th>
@@ -126,15 +126,15 @@ $result = $conn->query($query);
             while ($row = $result->fetch_assoc()) { ?>
               <tr>
                 <td><?php echo $i++; ?></td>
-                <td><?php echo htmlspecialchars($row['c_firstname']); ?></td>
-                <td><?php echo htmlspecialchars($row['c_lastname']); ?></td>
-                <td><?php echo htmlspecialchars($row['c_gender']); ?></td>
-                <td><?php echo htmlspecialchars($row['c_dateOfBirth']); ?></td>
-                <td><?php echo htmlspecialchars($row['phoneNumber']); ?></td>
+                <td><?php echo htmlspecialchars($row['C_firstname']); ?></td>
+                <td><?php echo htmlspecialchars($row['C_lastname']); ?></td>
+                <td><?php echo htmlspecialchars($row['C_Gender']); ?></td>
+                <td><?php echo htmlspecialchars($row['C_DateOfBirth']); ?></td>
+                <td><?php echo htmlspecialchars($row['PhoneNumber']); ?></td>
                 <td><?php echo htmlspecialchars($row['postName']); ?></td>
                 <td>
-                  <a href="edit_candidates.php?C_Id=<?php echo $row['C_Id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                  <a href="delete_candidates.php?C_Id=<?php echo $row['C_Id']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+                  <a href="edit_candidates.php?C_Id=<?php echo $row['C_ID']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a href="delete_candidates.php?C_Id=<?php echo $row['C_ID']; ?>" class="text-danger"><i class="fa-solid fa-trash"></i></a>
                 </td>
               </tr>
             <?php } ?>

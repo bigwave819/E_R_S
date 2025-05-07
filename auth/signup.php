@@ -19,7 +19,9 @@ if (isset($_POST['submit'])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $insertUser = "INSERT INTO users(username, password) VALUES('$username', '$hashedPassword')";
         if ($conn->query($insertUser)) {
-            header("Location:hirwa/pages/home.php");
+            $_SESSION['userId'] = $user['userId'];
+            $_SESSION['username'] = $user['username'];
+            header("Location: ../index.php");
             exit();
         } else {
             echo "<script>alert('Error registering user: " . $conn->error . "'); window.history.back();</script>";

@@ -16,13 +16,13 @@ $postResult = $conn->query($postQuery);
 
 if (isset($_GET['C_Id'])) {
     $id = $_GET['C_Id'];
-    $sql = "SELECT * FROM candidates WHERE C_Id='$id'";
+    $sql = "SELECT * FROM candidates WHERE C_ID='$id'";
     $result = $conn->query($sql);
     $roww = $result->fetch_assoc();
 }
 
 if (isset($_POST['submit'])) {
-    $id = $_GET['c_id'];
+    $id = $_GET['C_Id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $gender = $_POST['gender'];
@@ -31,13 +31,13 @@ if (isset($_POST['submit'])) {
     $post = $_POST['post'];
 
     $updateSql = "UPDATE candidates SET 
-                    c_firstname='$firstname', 
-                    c_lastname='$lastname', 
-                    c_gender='$gender', 
-                    c_dateOfBirth='$date_of_birth', 
-                    phoneNumber='$phoneNumber', 
+                    C_firstname='$firstname', 
+                    C_lastname='$lastname', 
+                    C_Gender='$gender', 
+                    C_DateOfBirth='$date_of_birth', 
+                    PhoneNumber='$phoneNumber', 
                     postId='$post' 
-                  WHERE c_id='$id'";
+                  WHERE C_ID='$id'";
 
     $updateResult = $conn->query($updateSql);
 
@@ -67,10 +67,10 @@ if (isset($_POST['submit'])) {
         <h3 class="text-success text-center">edit candidates</h3>
         <form method="post" class="bg-white p-5 rounded mb-5">
             <label class="form-label">Firstname</label>
-            <input type="text" name="firstname" class="form-control" value="<?php echo htmlspecialchars($roww['c_firstname']); ?>" /><br/>
+            <input type="text" name="firstname" class="form-control" value="<?php echo htmlspecialchars($roww['C_firstname']); ?>" /><br/>
 
             <label class="form-label">Lastname</label>
-            <input type="text" name="lastname" class="form-control" value="<?php echo htmlspecialchars($roww['c_lastname']); ?>" /><br/>
+            <input type="text" name="lastname" class="form-control" value="<?php echo htmlspecialchars($roww['C_lastname']); ?>" /><br/>
 
             <label class="form-label">Gender</label>
             <select name="gender" class="form-control">
@@ -79,10 +79,10 @@ if (isset($_POST['submit'])) {
             </select><br/>
 
             <label class="form-label">Date Of Birth</label>
-            <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($roww['c_dateOfBirth']); ?>"><br/>
+            <input type="date" name="date" class="form-control" value="<?php echo $roww['C_DateOfBirth']; ?>"><br/>
 
             <label class="form-label">Phone</label>
-            <input type="number" name="phone" class="form-control" value="<?php echo htmlspecialchars($roww['phoneNumber']); ?>"><br/>
+            <input type="number" name="phone" class="form-control" value="<?php echo $roww['PhoneNumber']; ?>"><br/>
 
             <label class="form-label">Post</label>
             <select name="post" class="form-control">

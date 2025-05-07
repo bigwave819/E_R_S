@@ -34,7 +34,7 @@ $userName = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
                     <a class="nav-link" href="view_post.php"><i class="fas fa-users"></i> post</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="view_candidates.php"><i class="fas fa-users"></i> report</a>
+                    <a class="nav-link" href="view_report.php.php"><i class="fas fa-users"></i> report</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="../auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -68,7 +68,7 @@ $userName = isset($_SESSION['username']) ? $_SESSION['username'] : 'User';
                     <p>
                         Our platform is designed to make your recruitment process efficient and easy. Explore the options in the sidebar and get started!
                     </p>
-                    <a href="home.php" class="btn btn-primary">Go to Dashboard</a>
+                    <a href="view_candidates.php" class="btn btn-primary">View Candidates</a>
                 </div>
             </div>
         </div>
